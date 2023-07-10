@@ -73,6 +73,7 @@ namespace BTK_Academy_DigitalGame_Course.Controller
         void GroundCheck()
         {
             _isGrounded = Physics2D.OverlapCircle(_groundCheckerObject.position, _groundCheckerRadius, _layerMask);
+            _animator.SetBool("isGroundedAnim", _isGrounded);
         }
     }
 }
