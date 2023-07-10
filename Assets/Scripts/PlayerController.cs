@@ -10,9 +10,11 @@ namespace BTK_Academy_DigitalGame_Course.Controller
         
         Rigidbody2D _rb;
         bool _isLookingRight;
+        Animator _animator;
         void Awake()
         {
             _rb = this.GetComponent<Rigidbody2D>();
+            _animator= this.GetComponent<Animator>();
         }
 
         
@@ -38,6 +40,7 @@ namespace BTK_Academy_DigitalGame_Course.Controller
         void HorizontalMove()
         {
             _rb.velocity = new Vector2(Input.GetAxis("Horizontal") * _movementSpeed, _rb.velocity.y);    
+            _animator.SetFloat("runningSpeed", Mathf.Abs(_rb.velocity.x));
         }
 
         void FlipFace()
@@ -47,6 +50,7 @@ namespace BTK_Academy_DigitalGame_Course.Controller
             tempLocalScale.x *= -1;
             transform.localScale = tempLocalScale;  
         }
+
     }
 }
 
