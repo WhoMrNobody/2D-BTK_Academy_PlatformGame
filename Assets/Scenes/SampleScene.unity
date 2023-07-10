@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 400485998}
   - component: {fileID: 400485997}
   - component: {fileID: 400485999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 729005145}
   - component: {fileID: 729005144}
   - component: {fileID: 729005146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 792506061}
   - component: {fileID: 792506062}
   - component: {fileID: 792506063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_4 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,6 +601,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &836651490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836651491}
+  m_Layer: 6
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &836651491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836651490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1132867442}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893008899
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +643,7 @@ GameObject:
   - component: {fileID: 893008900}
   - component: {fileID: 893008901}
   - component: {fileID: 893008902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +773,7 @@ GameObject:
   - component: {fileID: 906815862}
   - component: {fileID: 906815861}
   - component: {fileID: 906815863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +903,7 @@ GameObject:
   - component: {fileID: 953162959}
   - component: {fileID: 953162958}
   - component: {fileID: 953162960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1096,7 +1127,8 @@ Transform:
   m_LocalPosition: {x: -4.573, y: -3.608, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 836651491}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1185,6 +1217,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 3
+  _jumpForce: 15
+  _jumpFrequency: 1
+  _nextJumpTime: 0.1
+  _groundCheckerObject: {fileID: 836651491}
+  _groundCheckerRadius: 0.5
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _isGrounded: 0
 --- !u!1 &1177164652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1237,7 @@ GameObject:
   - component: {fileID: 1177164654}
   - component: {fileID: 1177164653}
   - component: {fileID: 1177164655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1367,7 @@ GameObject:
   - component: {fileID: 1182515324}
   - component: {fileID: 1182515323}
   - component: {fileID: 1182515325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1581,7 @@ GameObject:
   - component: {fileID: 1297326668}
   - component: {fileID: 1297326667}
   - component: {fileID: 1297326669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1711,7 @@ GameObject:
   - component: {fileID: 1543013687}
   - component: {fileID: 1543013686}
   - component: {fileID: 1543013688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1841,7 @@ GameObject:
   - component: {fileID: 1606540095}
   - component: {fileID: 1606540094}
   - component: {fileID: 1606540096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1930,7 +1971,7 @@ GameObject:
   - component: {fileID: 1741516557}
   - component: {fileID: 1741516558}
   - component: {fileID: 1741516559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_4 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2060,7 +2101,7 @@ GameObject:
   - component: {fileID: 1757726787}
   - component: {fileID: 1757726788}
   - component: {fileID: 1757726789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2239,7 +2280,7 @@ GameObject:
   - component: {fileID: 1843333915}
   - component: {fileID: 1843333914}
   - component: {fileID: 1843333916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2369,7 +2410,7 @@ GameObject:
   - component: {fileID: 1962274739}
   - component: {fileID: 1962274738}
   - component: {fileID: 1962274740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,7 +2540,7 @@ GameObject:
   - component: {fileID: 2121636366}
   - component: {fileID: 2121636365}
   - component: {fileID: 2121636367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2629,7 +2670,7 @@ GameObject:
   - component: {fileID: 2134556327}
   - component: {fileID: 2134556328}
   - component: {fileID: 2134556329}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2759,7 +2800,7 @@ GameObject:
   - component: {fileID: 2142046356}
   - component: {fileID: 2142046357}
   - component: {fileID: 2142046358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2d SideScrollerPlatformer1_4 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

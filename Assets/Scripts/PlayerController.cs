@@ -7,10 +7,17 @@ namespace BTK_Academy_DigitalGame_Course.Controller
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] float _movementSpeed;
-        
+        [SerializeField] float _jumpForce, _jumpFrequency = 0.1f, _nextJumpTime;
+        [SerializeField] Transform _groundCheckerObject;
+        [SerializeField] float _groundCheckerRadius;
+        [SerializeField] LayerMask _layerMask;
+        [SerializeField] bool _isGrounded = false;
+
         Rigidbody2D _rb;
         bool _isLookingRight;
         Animator _animator;
+        
+        
         void Awake()
         {
             _rb = this.GetComponent<Rigidbody2D>();
@@ -21,6 +28,7 @@ namespace BTK_Academy_DigitalGame_Course.Controller
         void Update()
         {
             HorizontalMove();
+            GroundCheck();
 
             if (_rb.velocity.x < 0 && !_isLookingRight)
             {
@@ -29,6 +37,12 @@ namespace BTK_Academy_DigitalGame_Course.Controller
             else if (_rb.velocity.x > 0 && _isLookingRight)
             {
                 FlipFace();
+            }
+
+            if (Input.GetAxis("Vertical") > 0 && _isGrounded && (_nextJumpTime < Time.timeSinceLevelLoad))
+            {   
+                _nextJumpTime = Time.timeSinceLevelLoad + _jumpFrequency;
+                Jump();
             }
         }
 
@@ -51,6 +65,15 @@ namespace BTK_Academy_DigitalGame_Course.Controller
             transform.localScale = tempLocalScale;  
         }
 
+        void Jump()
+        {
+            _rb.AddForce(new Vector2(0f, _jumpForce));
+        }
+
+        void GroundCheck()
+        {
+            _isGrounded = Physics2D.OverlapCircle(_groundCheckerObject.position, _groundCheckerRadius, _layerMask);
+        }
     }
 }
 
