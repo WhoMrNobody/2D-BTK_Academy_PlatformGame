@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BTK_Academy_DigitalGame_Course.Manager
 {
@@ -10,9 +11,12 @@ namespace BTK_Academy_DigitalGame_Course.Manager
         [SerializeField] float _damage;
         
         bool _isColliderBusy = false;
+        Slider _healthSlider;
         void Start()
         {
-
+            _healthSlider= GetComponentInChildren<Slider>();
+            _healthSlider.maxValue = _health;
+            _healthSlider.value = _health;
         }
         
         void Update()
@@ -53,6 +57,9 @@ namespace BTK_Academy_DigitalGame_Course.Manager
             {
                 _health = 0;
             }
+
+            _healthSlider.value = _health;
+
             ZombieDead();
         }
 

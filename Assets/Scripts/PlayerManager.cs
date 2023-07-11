@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 namespace BTK_Academy_DigitalGame_Course.Manager
 {
@@ -8,14 +10,17 @@ namespace BTK_Academy_DigitalGame_Course.Manager
     {
         [SerializeField] float _playerHealth;
         [SerializeField] bool _isPlayerDead = false;
-        [SerializeField] Transform _fireball;
+        [SerializeField] Transform _fireball, _floatingText;
         [SerializeField] float _fireballSpeed;
+        [SerializeField] Slider _healthSlider;
 
         Transform _muzzle;
         
         void Start()
         {
             _muzzle = transform.GetChild(1);
+            _healthSlider.value = _playerHealth;
+            _healthSlider.maxValue = _playerHealth;
         }
 
         
@@ -28,7 +33,9 @@ namespace BTK_Academy_DigitalGame_Course.Manager
         }
 
         public void GetDamage(float damage)
-        {
+        {   
+            Instantiate(_floatingText, this.transform.position, Quaternion.identity).GetComponent<TMP_Text>().text = damage.ToString();
+
             if((_playerHealth - damage) >= 0)
             {
                 _playerHealth -= damage;
@@ -37,6 +44,7 @@ namespace BTK_Academy_DigitalGame_Course.Manager
             {
                 _playerHealth = 0;
             }
+            _healthSlider.value = _playerHealth;
             AmIDead();
         }
 
