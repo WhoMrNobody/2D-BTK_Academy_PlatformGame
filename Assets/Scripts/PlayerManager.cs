@@ -53,8 +53,9 @@ namespace BTK_Academy_DigitalGame_Course.Manager
 
         void AmIDead()
         {
-            if(_playerHealth < 0) { 
-                
+            if(_playerHealth < 0) {
+
+                DataManager.Instance.LossProcess();
                 _isPlayerDead=true;
             }
         }

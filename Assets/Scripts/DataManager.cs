@@ -22,6 +22,7 @@ namespace BTK_Academy_DigitalGame_Course.Manager
             get { return _killedZombie; }
             set { _killedZombie = value;
                 GameObject.Find("EnemyKilledText").GetComponent<TMP_Text>().text = "ZOMBIE KILLED : " + _killedZombie.ToString();
+                WinProcess();
             }
         }
 
@@ -72,6 +73,19 @@ namespace BTK_Academy_DigitalGame_Course.Manager
                 TotalShootBullet = _myFile.GetInt("TotalShootBullet");
                 TotalKilledZombie = _myFile.GetInt("TotalKilledZombie");
             }
+        }
+
+        public void WinProcess()
+        {
+            if(_killedZombie >= 5)
+            {
+                Debug.Log("YOU WON");
+            }
+        }
+
+        public void LossProcess()
+        {
+            Debug.Log("YOU LOSE !!!");
         }
 
     }
