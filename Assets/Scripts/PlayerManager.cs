@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace BTK_Academy_DigitalGame_Course.Manager
 {
@@ -15,7 +16,7 @@ namespace BTK_Academy_DigitalGame_Course.Manager
         [SerializeField] Slider _healthSlider;
 
         Transform _muzzle;
-        
+        bool _mouseIsNotOverUI;
         void Start()
         {
             _muzzle = transform.GetChild(1);
@@ -26,7 +27,9 @@ namespace BTK_Academy_DigitalGame_Course.Manager
         
         void Update()
         {
-            if(Input.GetMouseButtonDown(0))
+            _mouseIsNotOverUI = EventSystem.current.currentSelectedGameObject == null;
+
+            if(Input.GetMouseButtonDown(0) && _mouseIsNotOverUI)
             {
                 ShootFireBall();
             }
@@ -61,6 +64,7 @@ namespace BTK_Academy_DigitalGame_Course.Manager
             Transform tempFireball;
             tempFireball = Instantiate(_fireball, _muzzle.position, Quaternion.identity);
             tempFireball.GetComponent<Rigidbody2D>().AddForce(_muzzle.forward * _fireballSpeed);
+            DataManager.Instance.ShootBullet++;
         }
     }
 }

@@ -37,6 +37,7 @@ namespace BTK_Academy_DigitalGame_Course.Manager
         public void BackToMainMenu()
         {
             Time.timeScale = 1f;
+            DataManager.Instance.SaveData();
             SceneManager.LoadScene(0);
         }
     }

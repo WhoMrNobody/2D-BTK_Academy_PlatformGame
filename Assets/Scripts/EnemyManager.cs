@@ -67,7 +67,7 @@ namespace BTK_Academy_DigitalGame_Course.Manager
         {
             if (_health <= 0)
             {
-
+                DataManager.Instance.EnemyKilled++;
                 Destroy(this.gameObject);
             }
         }
